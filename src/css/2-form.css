@@ -40,3 +40,16 @@ button {
   letter-spacing: 0.04em;
   border: none;
 }
+
+textarea {
+  padding: 8px;
+  margin-bottom: 8px;
+  display: flex;
+  width: 360px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  gap: 8px;
+}

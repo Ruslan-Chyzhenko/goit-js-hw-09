@@ -64,6 +64,15 @@ const images = [
   },
 ];
 
+// Importing the functionality of the SimpleLightbox library
+import SimpleLightbox from "simplelightbox";
+
+// Importing additional styles for the library
+import "simplelightbox/dist/simple-lightbox.min.css";
+
+// Отримання посилання на елемент ul.gallery
+const galleryContainer = document.querySelector('.gallery');
+
 // Function to create a gallery item with specified attributes
 function createGalleryItem(image) {
   const galleryItem = document.createElement('li');
@@ -90,12 +99,6 @@ const galleryItems = images.map((image) => createGalleryItem(image));
 // Append all gallery items to galleryContainer in one operation
 galleryContainer.append(...galleryItems);
 
-// Importing the functionality of the SimpleLightbox library
-import SimpleLightbox from "simplelightbox";
-
-// Importing additional styles for the library
-import "simplelightbox/dist/simple-lightbox.min.css";
-
 // Initializing SimpleLightbox after creating and adding gallery items
 const lightbox = new SimpleLightbox('.gallery a', {
   captions: true,
@@ -103,17 +106,4 @@ const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionPosition: 'bottom',
   captionDelay: 250,
-  });
-
-// Initializing SimpleLightbox for the standalone variant
-const lightboxStandalone = new SimpleLightbox('.gallery a', { });
-
-// Importing simple-lightbox(.min).js
-import SimpleLightboxWebpack from "simplelightbox/dist/simple-lightbox.min";
-// Initializing SimpleLightbox for Webpack
-const lightboxWebpack = new SimpleLightboxWebpack('.gallery a', { });
-
-// Importing simple-lightbox.esm.js
-import SimpleLightboxESM from "simplelightbox/dist/simple-lightbox.esm";
-// Initializing SimpleLightbox for plain ES Module
-const lightboxESM = new SimpleLightboxESM('.gallery a', { });
+});
