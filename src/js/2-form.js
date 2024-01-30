@@ -2,8 +2,8 @@
 function handleInput(event) {
   // Collect form data from email and message fields
   const formData = {
-    email: document.querySelector('input[name="email"]').value,
-    message: document.querySelector('textarea[name="message"]').value,
+    email: document.querySelector('input[name="email"]').value.trim(),
+    message: document.querySelector('textarea[name="message"]').value.trim(),
   };
 
   // Save the formData object to local storage under the key "feedback-form-state"
@@ -30,14 +30,23 @@ function handleSubmit(event) {
   // Prevent the default form submission behavior
   event.preventDefault();
 
+  // Check if both email and message fields are not empty before submitting
+  const emailValue = document.querySelector('input[name="email"]').value.trim();
+  const messageValue = document.querySelector('textarea[name="message"]').value.trim();
+
+  if (!emailValue || !messageValue) {
+    alert('Please fill in both email and message fields before submitting.');
+    return;
+  }
+
   // Clear local storage and reset form fields
   localStorage.removeItem('feedback-form-state');
   document.querySelector('.feedback-form').reset();
 
   // Log an object with email and message fields and their current values to the console
   const formData = {
-    email: document.querySelector('input[name="email"]').value,
-    message: document.querySelector('textarea[name="message"]').value,
+    email: emailValue,
+    message: messageValue,
   };
   console.log(formData);
 }

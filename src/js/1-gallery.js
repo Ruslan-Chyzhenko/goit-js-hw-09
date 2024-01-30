@@ -70,7 +70,8 @@ import SimpleLightbox from "simplelightbox";
 // Importing additional styles for the library
 import "simplelightbox/dist/simple-lightbox.min.css";
 
-// Отримання посилання на елемент ul.gallery
+
+// Getting a reference to the ul.gallery element
 const galleryContainer = document.querySelector('.gallery');
 
 // Function to create a gallery item with specified attributes
@@ -101,9 +102,6 @@ galleryContainer.append(...galleryItems);
 
 // Initializing SimpleLightbox after creating and adding gallery items
 const lightbox = new SimpleLightbox('.gallery a', {
-  captions: true,
-  captionType: 'attr',
   captionsData: 'alt',
-  captionPosition: 'bottom',
   captionDelay: 250,
 });
